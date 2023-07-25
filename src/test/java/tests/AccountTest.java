@@ -1,6 +1,10 @@
 package tests;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import models.Account;
+import models.AccountFactory;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -13,8 +17,8 @@ public class AccountTest extends BaseTest {
                 .clickLogInButton();
         accountListPage.openAccountPage()
                 .clickNewButton();
-        Account account = new Account("TestName", "www.onliner.by","Investor","Education","375292118594","357589BY","13","15","Vitebsk","210000","1000000","Belarus","Kaliningrad","7775533","Edinburgh","Scotland","Our product is the best in the world!","London is a capital of Great Britain","I do not know the streets in England");
-        accountModalPage.create(account);
+        Account account = AccountFactory.get();
+                accountModalPage.create(account);
         accountDetailsPage.isPageOpen();
         assertEquals(accountDetailsPage.getFieldValue("Account Name"),account.getAccountName());
         assertEquals(accountDetailsPage.getFieldValue("Website"),account.getWebSite());
