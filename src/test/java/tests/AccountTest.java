@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class AccountTest extends BaseTest {
-    @Test
+    @Test(description = "Проверка поля Account с валидными данными")
     public void accountShouldBeCreated() {
         loginPage.openSaleForce()
-                .loginAndPassword("oubguxk-ehlf@force.com","987654321J")
+                .loginAndPassword("ewebof-bvrk@force.com","123456789J")
                 .clickLogInButton();
         accountListPage.openAccountPage()
                 .clickNewButton();

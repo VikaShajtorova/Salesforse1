@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 
 public class DropDown {
-    String dropDownLocator = "//span[text() = '%s']/ancestor::div[contains(@class, 'uiInputSelect')]//div[@class='uiMenu']";
-    String optionLocator = "//div[contains(@class, 'visible')]//a[text() = '%s']";
+    String dropDownLocator = "//span[text() = '%s']/ancestor::div[contains(@class, 'uiInputSelect')]//div[@class='uiMenu'] | //label[text()='%s']/ancestor::div[contains(@class,'slds-grid')]//input | //label[text()='%s']/ancestor::div[contains(@class,'slds-grid')]//button[contains(@class,'slds-combobox__input')]";
+    String optionLocator = "//div[contains(@class, 'visible')]//a[text() = '%s'] | //span[text()='%s']/ancestor::li[contains(@class,'slds-listbox__item')]//lightning-base-combobox-item | //lightning-base-combobox-item[contains(@class, 'slds-media')]//span[text() = '%s']";
     WebDriver driver;
     String label;
 
@@ -15,7 +15,7 @@ public class DropDown {
         this.label = label;
     }
     public void selectOption(String option){
-        driver.findElement(By.xpath(String.format(dropDownLocator,this.label))).click();
-        driver.findElement(By.xpath(String.format(optionLocator,option))).click();
+        driver.findElement(By.xpath(String.format(dropDownLocator,this.label,this.label,this.label))).click();
+        driver.findElement(By.xpath(String.format(optionLocator,option,option,option))).click();
     }
 }

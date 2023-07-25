@@ -16,8 +16,11 @@ public class ContactDetailsPage extends BasePage{
     public String getFieldValue(String fieldName) {
         return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
+    public String getAccountName(Contact contact){
+        return "Open "+contact.getAccountName()+" Preview";
+    }
     public String getName(Contact contact){
-        return contact.getFirstName()+", "+contact.getLastName();
+        return contact.getSalutation()+" "+contact.getFirstName()+" "+contact.getLastName();
     }
     public String getMailingAddress(Contact contact){
         return contact.getMailingStreet()+"\n"+ contact.getMailingCity() +", "+contact.getMailingState_Province()+" "+contact.getMailingZip_PostalCode()+"\n"+ contact.getMailingCountry();

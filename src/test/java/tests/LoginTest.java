@@ -6,10 +6,10 @@ import static org.testng.Assert.*;
 
 public class LoginTest extends BaseTest {
 
-@Test
+@Test(description = "Проверка логина с валидными данными")
 public void loginUserIsValidData(){
     boolean isHomePageOpen = loginPage.openSaleForce()
-            .loginAndPassword("oubguxk-ehlf@force.com","987654321J")
+            .loginAndPassword("ewebof-bvrk@force.com","123456789J")
             .clickLogInButton()
             .isPageOpen();
     assertTrue(isHomePageOpen);

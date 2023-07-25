@@ -40,7 +40,7 @@ public class AccountModalPage extends BasePage{
     }
 
     public AccountDetailsPage clickSaveButton(){
-        driver.findElement(SAVE_BUTTON).click();
+        driver.findElement(ACCOUNT_SAVE_BUTTON).click();
         return new AccountDetailsPage(driver);
     }
 

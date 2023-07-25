@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,6 +25,7 @@ public class BaseTest {
 
 
 
+    @Step("Настройка и открытие браузера")
     @BeforeMethod
     public void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -44,6 +46,7 @@ public class BaseTest {
 
 
     }
+    @Step("Закрытие браузера")
     @AfterMethod(alwaysRun = true)
     public void tearDown(){
 
@@ -52,4 +55,4 @@ public class BaseTest {
 }
 
 
-//"oubguxk-ehlf@force.com","987654321J"
+
