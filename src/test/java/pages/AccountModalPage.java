@@ -3,9 +3,11 @@ package pages;
 import elements.DropDown;
 import elements.Input;
 import elements.TextArea;
+import lombok.extern.log4j.Log4j;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+@Log4j
 
 public class AccountModalPage extends BasePage{
     public static final By NEW_ACCOUNT_TITLE = By.xpath("//h2[contains(@class,'inlineTitle')]");
@@ -28,12 +30,12 @@ public class AccountModalPage extends BasePage{
         new TextArea(driver,"Billing Street").write(account.getBillingStreet());
         new TextArea(driver,"Shipping Street").write(account.getShippingStreet());
         new Input(driver, "Billing City").write(account.getBillingCity());
-        new Input(driver, "Billing Zip/Postal Code").write(account.getBillingZip_PostalCode());
-        new Input(driver, "Billing State/Province").write(account.getBillingState_Province());
+        new Input(driver, "Billing Zip/Postal Code").write(account.getBillingZipPostalCode());
+        new Input(driver, "Billing State/Province").write(account.getBillingStateProvince());
         new Input(driver, "Billing Country").write(account.getBillingCountry());
         new Input(driver, "Shipping City").write(account.getShippingCity());
-        new Input(driver, "Shipping Zip/Postal Code").write(account.getShippingZip_PostalCode());
-        new Input(driver, "Shipping State/Province").write(account.getShippingState_Province());
+        new Input(driver, "Shipping Zip/Postal Code").write(account.getShippingZipPostalCode());
+        new Input(driver, "Shipping State/Province").write(account.getShippingStateProvince());
         new Input(driver, "Shipping Country").write(account.getShippingCountry());
         return clickSaveButton();
 

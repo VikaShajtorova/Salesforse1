@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.NoSuchElementException;
@@ -13,12 +14,17 @@ public abstract class BasePage {
     public static final By NEW_BUTTON = By.xpath("//div[@title = 'New']");
     public static final By ACCOUNT_SAVE_BUTTON = By.xpath("//button[@title='Save']");
     public static final By CONTACT_SAVE_BUTTON = By.xpath("//button[contains(@class,'slds-button_brand')]");
+    public static final By NOTIFICATION =By.xpath( "//span[contains(@class, 'toastMessage')]");
 
 
     public BasePage(WebDriver driver) {
 
         this.driver = driver;
         wait = new WebDriverWait(driver,10);
+    }
+    public String waitAndGetText(By locator){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return driver.findElement(locator).getText();
     }
     public abstract boolean isPageOpen();
 

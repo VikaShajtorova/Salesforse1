@@ -23,10 +23,16 @@ public class ContactDetailsPage extends BasePage{
         return contact.getSalutation()+" "+contact.getFirstName()+" "+contact.getLastName();
     }
     public String getMailingAddress(Contact contact){
-        return contact.getMailingStreet()+"\n"+ contact.getMailingCity() +", "+contact.getMailingState_Province()+" "+contact.getMailingZip_PostalCode()+"\n"+ contact.getMailingCountry();
+        return contact.getMailingStreet()+"\n"+ contact.getMailingCity() +", "+contact.getMailingStateProvince()+
+                " "+contact.getMailingZipPostalCode()+"\n"+ contact.getMailingCountry();
     }
     public String getOtherAddress(Contact contact){
-        return contact.getOtherStreet()+"\n"+ contact.getOtherCity() +", "+contact.getOtherState_Province()+" "+contact.getOtherZip_PostalCode()+"\n"+ contact.getOtherCountry();
+        return contact.getOtherStreet()+"\n"+ contact.getOtherCity() +", "+contact.getOtherStateProvince()+
+                " "+contact.getOtherZipPostalCode()+"\n"+ contact.getOtherCountry();
+    }
+
+    public  String getNotificationTextContact(){
+        return waitAndGetText(NOTIFICATION);
     }
     @Override
     public boolean isPageOpen() {

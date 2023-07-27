@@ -1,6 +1,7 @@
 package tests;
 
 import models.Contact;
+import models.ContactFactory;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -9,13 +10,15 @@ public class ContactTest extends BaseTest {
     @Test(description = "Проверка поля Contact с валидными данными")
     public void contactShouldBeCreated() {
         loginPage.openSaleForce()
-                .loginAndPassword("ewebof-bvrk@force.com","123456789J")
+                .loginAndPassword("bmobme-seuz@force.com","dbrnjhbz_1105")
                 .clickLogInButton();
         contactListPage.openContactPage()
                 .clickNewButton();
-        Contact contact = new Contact("TestName","LastTestName","FirstTestName","Mr.","777333555","375292118594","joj@mail.ru","Best Site","Chkalova","Vitebsk","210000","Vitebsk area","Greece","Neznayu","Athens","87654","Itaka","Brazil","3245873","123456789","987654321","918273645","48","34534","External Referral","10.03.2009","there are a lot of fields to fill in!");
+        Contact contact = ContactFactory.get();
         contactModalPage.create(contact);
         contactModalPage.isPageOpen();
+        assertEquals(contactDetailsPage.getNotificationTextContact(), "Contact \""+contact.getSalutation()+" "
+                +contact.getFirstName()+" "+ contact.getLastName()+"\" was created.");
         assertEquals(contactDetailsPage.getFieldValue("Account Name"),contactDetailsPage.getAccountName(contact));
         assertEquals(contactDetailsPage.getFieldValue("Name"),contactDetailsPage.getName(contact));
         assertEquals(contactDetailsPage.getFieldValue("Title"),contact.getTitle());
@@ -27,7 +30,7 @@ public class ContactTest extends BaseTest {
         assertEquals(contactDetailsPage.getFieldValue("Fax"),contact.getFax());
         assertEquals(contactDetailsPage.getFieldValue("Home Phone"),contact.getHomePhone());
         assertEquals(contactDetailsPage.getFieldValue("Other Phone"),contact.getOtherPhone());
-        assertEquals(contactDetailsPage.getFieldValue("Asst. Phone"),contact.getAsst_Phone());
+        assertEquals(contactDetailsPage.getFieldValue("Asst. Phone"),contact.getAsstPhone());
         assertEquals(contactDetailsPage.getFieldValue("Assistant"),contact.getAssistant());
         assertEquals(contactDetailsPage.getFieldValue("Description"),contact.getDescription());
         assertEquals(contactDetailsPage.getFieldValue("Department"),contact.getDepartment());

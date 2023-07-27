@@ -13,19 +13,21 @@ public class AccountTest extends BaseTest {
     @Test(description = "Проверка поля Account с валидными данными")
     public void accountShouldBeCreated() {
         loginPage.openSaleForce()
-                .loginAndPassword("ewebof-bvrk@force.com","123456789J")
+                .loginAndPassword("bmobme-seuz@force.com","dbrnjhbz_1105")
                 .clickLogInButton();
         accountListPage.openAccountPage()
                 .clickNewButton();
         Account account = AccountFactory.get();
                 accountModalPage.create(account);
         accountDetailsPage.isPageOpen();
-        assertEquals(accountDetailsPage.getFieldValue("Account Name"),account.getAccountName());
-        assertEquals(accountDetailsPage.getFieldValue("Website"),account.getWebSite());
-        assertEquals(accountDetailsPage.getFieldValue("Phone"),account.getPhone());
-        assertEquals(accountDetailsPage.getFieldValue("Fax"),account.getFax());
-        assertEquals(accountDetailsPage.getFieldValue("Type"),account.getType());
-        assertEquals(accountDetailsPage.getFieldValue("Industry"),account.getIndustry());
+
+        assertEquals(accountDetailsPage.getNotificationTextAccount(),"Account \""+ account.getAccountName() +"\" was created.");
+      assertEquals(accountDetailsPage.getFieldValue("Account Name"),account.getAccountName());
+       assertEquals(accountDetailsPage.getFieldValue("Website"),account.getWebSite());
+       assertEquals(accountDetailsPage.getFieldValue("Phone"),account.getPhone());
+       assertEquals(accountDetailsPage.getFieldValue("Fax"),account.getFax());
+       assertEquals(accountDetailsPage.getFieldValue("Type"),account.getType());
+       assertEquals(accountDetailsPage.getFieldValue("Industry"),account.getIndustry());
         assertEquals(accountDetailsPage.getFieldValue("Employees"),account.getEmployees());
         assertEquals(accountDetailsPage.getFieldValue("Annual Revenue"),account.getAnnualRevenue() + " 000 000 000 Br");
         assertEquals(accountDetailsPage.getFieldValue("Description"),account.getDescription());

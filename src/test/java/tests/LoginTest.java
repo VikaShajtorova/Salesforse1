@@ -9,7 +9,7 @@ public class LoginTest extends BaseTest {
 @Test(description = "Проверка логина с валидными данными")
 public void loginUserIsValidData(){
     boolean isHomePageOpen = loginPage.openSaleForce()
-            .loginAndPassword("ewebof-bvrk@force.com","123456789J")
+            .loginAndPassword("bmobme-seuz@force.com","dbrnjhbz_1105")
             .clickLogInButton()
             .isPageOpen();
     assertTrue(isHomePageOpen);
