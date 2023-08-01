@@ -4,10 +4,11 @@ import elements.DropDown;
 import elements.Input;
 import elements.TextArea;
 import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-@Log4j
+@Log4j2
 
 public class AccountModalPage extends BasePage{
     public static final By NEW_ACCOUNT_TITLE = By.xpath("//h2[contains(@class,'inlineTitle')]");
